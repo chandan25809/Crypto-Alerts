@@ -25,8 +25,9 @@ class UsersController < ApplicationController
 
     # DELETE /users/{username}
     def destroy
-        #its better practice to update status:"inactive" instead of deletign user
+        #its better practice to update status:"inactive" instead of deleting user
         @user.destroy
+        render json: { error: 'user deleted' }
     end
 
     # GET /users

@@ -74,3 +74,5 @@ gem 'jwt'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'faye-websocket'
+
+gem 'sidekiq'
