@@ -37,5 +37,5 @@ class BinanceWebSocketClient
       AlertEmailJob.perform_async(alert_ids, symbol, price)
       Redis.del_list(key)
     end
-
+  end
 end
