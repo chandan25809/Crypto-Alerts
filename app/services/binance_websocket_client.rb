@@ -30,7 +30,7 @@ class BinanceWebSocketClient
   def check_price_alert(symbol, price)
     key = "#{symbol}_#{price}"
 
-    if Redis.key_exists(key) && Redis.get_ttl(key) > 0
+    if Redis.key_exists?(key) && Redis.get_ttl(key) > 0
       alert_ids = Redis.read_list(key)
       puts alert_ids
       # Enqueue the background job to send mail id's

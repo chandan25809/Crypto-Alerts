@@ -2,6 +2,10 @@
 
 # Brine Task
 
+- [Watch the Task Video](https://drive.google.com/file/d/1owaLp_j-gxeBB7TQmooDcdWUObe5O0nW/view?usp=sharing)
+
+
+
 ### Prerequisites
 
 - **Ruby Version**: 3.2.0
