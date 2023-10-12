@@ -42,13 +42,14 @@ class AlertsController < ApplicationController
   end
 
   def index
-    page = params[:page].to_i
-    per_page = params[:per_page].to_i
-    filters = params[:filters]
-    # Set default values for page and per_page
-    page = 1 if page <= 0
-    per_page = 10 if per_page <= 0
-    service = AlertService.new(Alert.where(user_id: @current_user.id, status: 'active'), filters, page, per_page)
+    status = params[:status] || 'active'
+    state = params[:state]
+    page = (params[:page] || 1).to_i
+    per_page = (params[:per_page] || 10).to_i
+    alerts_query = Alert.where(user_id: @current_user.id, status: status)
+    alerts_query = alerts_query.where(state: state) if state.present?
+    service = AlertService.new(alerts_query, page, per_page)
+
     result = service.filter_and_paginate
 
     render json: result
