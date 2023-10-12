@@ -4,7 +4,7 @@
 
 - [Watch the Task Video](https://drive.google.com/file/d/1owaLp_j-gxeBB7TQmooDcdWUObe5O0nW/view?usp=sharing)
 
-
+- [check postman collection link here](https://api.postman.com/collections/15068219-158ec353-8eba-4c55-a0d1-5605caab33cd?access_key=PMAT-01HCHFQ618DWH3J6EZ5A7CV84B)
 
 ### Prerequisites
 
