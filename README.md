@@ -24,7 +24,7 @@ POSTGRES_HOST=db
 RAILS_ENV=development
 ```
 
-Installing Redis
+Install Redis
 
 You can install Redis using Homebrew:
 
@@ -41,7 +41,7 @@ docker-compose build
 docker-compose up
 ```
 
-##If Docker Compose is not working, you can follow these alternative commands:
+# If Docker Compose is not working, you can follow these alternative commands:
 
 ```bash
 cd brine_demo
@@ -64,7 +64,7 @@ In another terminal, start Sidekiq:
 bundle exec sidekiq
 ```
 
-##Email Service Configuration
+# Email Service Configuration
 
 To configure the email service, add your credentials to config/development.rb:
 
@@ -79,3 +79,4 @@ config.action_mailer.smtp_settings = {
 }
 ```
 Replace 'yourmail@gmail.com' and 'your_password' with your actual email credentials.
+Replace your mail id in 'app/mailers/user_mailer.rb'
