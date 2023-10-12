@@ -16,10 +16,9 @@ Follow this guide to change versions: [Upgrading Ruby on Rails](https://guides.r
 Make sure you have PostgreSQL running on your local system. Configure the following environment variables in a `.env` file at the project root:
 
 ```dotenv
-POSTGRES_USER=user
-POSTGRES_PASSWORD=password
+POSTGRES_USER=add postgres username
+POSTGRES_PASSWORD=add postgres password
 POSTGRES_DB=brine_demo_development
-RAILS_MASTER_KEY= # Add your Rails master key from config/master.key
 POSTGRES_HOST=db
 RAILS_ENV=development
 ```
@@ -64,6 +63,11 @@ In another terminal, start Sidekiq:
 bundle exec sidekiq
 ```
 
+Start rails server
+```bash 
+rails s
+```
+
 # Email Service Configuration
 
 To configure the email service, add your credentials to config/development.rb:
@@ -78,5 +82,5 @@ config.action_mailer.smtp_settings = {
   enable_starttls_auto: true
 }
 ```
-- **Replace 'yourmail@gmail.com' and 'your_password' with your actual email credentials.
-- **Replace mail id in 'app/mailers/user_mailer.rb'
+- Replace 'yourmail@gmail.com' and 'your_password' with your actual email credentials.
+- Replace mail id in 'app/mailers/user_mailer.rb'

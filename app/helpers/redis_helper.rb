@@ -35,7 +35,7 @@ class RedisHelper
   end
 
   def increase_expiry_for_all_keys
-    #We can fetch redis keys in batches if the keys are in millions
+    # We can fetch redis keys in batches if the keys are in millions
     all_keys = @redis.keys('*')
     all_keys.each do |key|
       current_ttl = @redis.ttl(key)
