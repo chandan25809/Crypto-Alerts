@@ -78,5 +78,5 @@ config.action_mailer.smtp_settings = {
   enable_starttls_auto: true
 }
 ```
-Replace 'yourmail@gmail.com' and 'your_password' with your actual email credentials.
-Replace your mail id in 'app/mailers/user_mailer.rb'
+- **Replace 'yourmail@gmail.com' and 'your_password' with your actual email credentials.
+- **Replace mail id in 'app/mailers/user_mailer.rb'
