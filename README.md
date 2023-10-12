@@ -10,7 +10,7 @@
 
 - **Ruby Version**: 3.2.0
 - **Rails Version**: 7.2.0.alpha (or Rails 7.1+)
-  (Be careful while changing the version logs)
+  (Be careful while changing the versions)
 
 Follow this guide to change versions: [Upgrading Ruby on Rails](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html)
 
