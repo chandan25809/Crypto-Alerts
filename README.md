@@ -1,24 +1,80 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Brine Task
 
-Things you may want to cover:
+### Prerequisites
 
-* Ruby version
+- **Ruby Version**: 3.2.0
+- **Rails Version**: 7.2.0.alpha (or Rails 7.1+)
+  (Be careful while changing the version logs)
 
-* System dependencies
+Follow this guide to change versions: [Upgrading Ruby on Rails](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html)
 
-* Configuration
+## Getting Started
 
-* Database creation
 
-* Database initialization
+Make sure you have PostgreSQL running on your local system. Configure the following environment variables in a `.env` file at the project root:
 
-* How to run the test suite
+```dotenv
+POSTGRES_USER=user
+POSTGRES_PASSWORD=password
+POSTGRES_DB=brine_demo_development
+RAILS_MASTER_KEY= # Add your Rails master key from config/master.key
+POSTGRES_HOST=db
+RAILS_ENV=development
 
-* Services (job queues, cache servers, search engines, etc.)
+#Installing Redis
 
-* Deployment instructions
+You can install Redis using Homebrew:
 
-* ...
+```bash
+brew install redis
+```
+
+#Running with Docker Compose
+
+Try running the project using the Docker Compose file provided in the brine_demo directory:
+
+```bash
+docker-compose build
+docker-compose up
+```
+
+#If Docker Compose is not working, you can follow these alternative commands:
+
+```bash
+cd brine_demo
+bundle install
+rails db:prepare
+```
+
+In another terminal, start Redis:
+
+```bash
+brew services start redis
+# or
+redis-server
+
+```
+
+In another terminal, start Sidekiq:
+
+```bash
+bundle exec sidekiq
+```
+
+#Email Service Configuration
+
+To configure the email service, add your credentials to config/development.rb:
+
+```ruby
+config.action_mailer.smtp_settings = {
+  address: 'smtp.gmail.com',
+  port: 587,
+  user_name: 'yourmail@gmail.com',
+  password: 'your_password',
+  authentication: 'plain',
+  enable_starttls_auto: true
+}
+```
+Replace 'yourmail@gmail.com' and 'your_password' with your actual email credentials.

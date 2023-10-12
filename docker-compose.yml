@@ -32,6 +32,23 @@ services:
       - mynetwork
     ports:
       - "3000:3000"
+  sidekiq:
+    depends_on:
+      - db
+      - redis_app
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - app-storage:/rails/storage
+    environment:
+      - REDIS_URL_SIDEKIQ=redis://redis_app:6400/1
+
+  redis_app:
+    build:
+      context: ./redis
+      dockerfile: ./redis/Dockerfile
+    ports:
+      - "6379:6379"
 
 volumes:
   postgres_data: {}

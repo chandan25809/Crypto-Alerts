@@ -16,7 +16,7 @@ class BinanceWebSocketClient
           symbol = item['s']
           price = item['c'].to_f
           puts "Coin: #{symbol}, Current Price: #{price}"
-
+          check_price_alert(symbol, price)
         end
       end
 
@@ -27,11 +27,15 @@ class BinanceWebSocketClient
     end
   end
 
-  def helper(symbol,price)
-  #trigger the notification
-  redis
-  key="{symbol}_{price}"
-  value=[alert_ids]
-  end
+  def check_price_alert(symbol, price)
+    key = "#{symbol}_#{price}"
+
+    if Redis.key_exists(key) && Redis.get_ttl(key) > 0
+      alert_ids = Redis.read_list(key)
+      puts alert_ids
+      # Enqueue the background job to send mail id's
+      AlertEmailJob.perform_async(alert_ids, symbol, price)
+      Redis.del_list(key)
+    end
 
 end

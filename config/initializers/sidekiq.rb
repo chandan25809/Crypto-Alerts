@@ -12,3 +12,9 @@ require_relative '../../app/sidekiq/background_task_job'
 unless Sidekiq::Queue.new("default").find_job("BackgroundTaskJob")
   BackgroundTaskJob.perform_async
 end
+
+
+schedule_file = "config/schedule.yml"
+if File.exist?(schedule_file) && Sidekiq.server?
+  Sidekiq::Cron::Job.load_from_hash YAML.load_file(schedule_file)
+end
