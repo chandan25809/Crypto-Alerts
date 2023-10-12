@@ -22,8 +22,9 @@ POSTGRES_DB=brine_demo_development
 RAILS_MASTER_KEY= # Add your Rails master key from config/master.key
 POSTGRES_HOST=db
 RAILS_ENV=development
+```
 
-#Installing Redis
+##Installing Redis
 
 You can install Redis using Homebrew:
 
@@ -31,7 +32,7 @@ You can install Redis using Homebrew:
 brew install redis
 ```
 
-#Running with Docker Compose
+##Running with Docker Compose
 
 Try running the project using the Docker Compose file provided in the brine_demo directory:
 
@@ -40,7 +41,7 @@ docker-compose build
 docker-compose up
 ```
 
-#If Docker Compose is not working, you can follow these alternative commands:
+##If Docker Compose is not working, you can follow these alternative commands:
 
 ```bash
 cd brine_demo
@@ -63,7 +64,7 @@ In another terminal, start Sidekiq:
 bundle exec sidekiq
 ```
 
-#Email Service Configuration
+##Email Service Configuration
 
 To configure the email service, add your credentials to config/development.rb:
 
