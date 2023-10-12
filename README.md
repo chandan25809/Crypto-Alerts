@@ -24,7 +24,7 @@ POSTGRES_HOST=db
 RAILS_ENV=development
 ```
 
-##Installing Redis
+Installing Redis
 
 You can install Redis using Homebrew:
 
@@ -32,7 +32,7 @@ You can install Redis using Homebrew:
 brew install redis
 ```
 
-##Running with Docker Compose
+# Running with Docker Compose
 
 Try running the project using the Docker Compose file provided in the brine_demo directory:
 
